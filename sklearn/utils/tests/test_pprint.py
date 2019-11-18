@@ -41,7 +41,7 @@ class LogisticRegression(BaseEstimator):
         return self
 
 
-class StandardScaler(BaseEstimator, TransformerMixin):
+class StandardScaler(TransformerMixin, BaseEstimator):
     def __init__(self, copy=True, with_mean=True, with_std=True):
         self.with_mean = with_mean
         self.with_std = with_std
@@ -233,7 +233,8 @@ Pipeline(memory=None,
                                     multi_class='warn', n_jobs=None,
                                     penalty='l2', random_state=None,
                                     solver='warn', tol=0.0001, verbose=0,
-                                    warm_start=False))])"""
+                                    warm_start=False))],
+         verbose=False)"""
 
     expected = expected[1:]  # remove first \n
     assert pipeline.__repr__() == expected
